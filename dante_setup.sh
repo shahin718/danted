@@ -8,13 +8,14 @@ sudo dpkg -i dante-server_1.4.1-1_amd64.deb
 # it would fail to start, it's okay, packaged config is garbage
 
 # write basic config:
-sudo tee /etc/danted.conf >/dev/null <<'EOF'
+sudo nano /etc/danted.conf
 logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
+# interface name and desired proxy port may differ, use `ip a` command to see interfaces:
 internal: eth0 port = 1080
 external: eth0
-#set 'none' instead of 'username' if you want to disable auth:
+# set socksmethod to 'none' instead of 'username' if you want to disable auth.
 socksmethod: username
 clientmethod: none
 user.libwrap: nobody
@@ -26,7 +27,6 @@ socks pass {
         from: 0/0 to: 0/0
         log: connect disconnect error
 }
-EOF
 
 # restart dante and enable starting on boot:
 sudo systemctl restart danted
@@ -37,6 +37,10 @@ sudo ufw allow 1080
 
 # add system user with password to use with sock5 auth:
 sudo adduser proxyuser
+
+# see dante logs:
+sudo journalctl -xe -u danted
+# add -f to attach and watch
 
 # test proxy on your local machine:
 curl -v -x socks5://proxyuser:proxyuserpass@yourserverip:1080 https://www.yandex.ru/
