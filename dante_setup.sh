@@ -31,15 +31,17 @@ socks pass {
 }
 # end of config
 
-# restart dante and enable starting on boot:
-sudo systemctl restart danted
-sudo systemctl enable danted
+# add system user 'proxyuser' with password to use with sock5 auth:
+sudo useradd --shell /usr/sbin/nologin proxyuser
+sudo passwd proxyuser
+# and input password twice
 
 # if you use ubuntu firewall, allow port:
 sudo ufw allow 1080
 
-# add system user with password to use with sock5 auth:
-sudo adduser proxyuser
+# restart dante and enable starting on boot:
+sudo systemctl restart danted
+sudo systemctl enable danted
 
 # you may see dante status:
 sudo systemctl status danted
