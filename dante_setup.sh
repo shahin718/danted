@@ -10,7 +10,7 @@ sudo dpkg -i dante-server_1.4.1-1_amd64.deb
 # open dante config for editing:
 sudo nano /etc/danted.conf
 
-# remove everythong (holding Ctrl+K will do it) and copy basic config:
+# remove everything (holding Ctrl+K will do it) and copy-paste basic config:
 logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
