@@ -32,6 +32,9 @@ EOF
 sudo systemctl restart danted
 sudo systemctl enable danted
 
+# if you use ubuntu firewall, allow port:
+sudo ufw allow 1080
+
 # add system user with password to use with sock5 auth:
 sudo adduser proxyuser
 
