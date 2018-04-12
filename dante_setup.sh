@@ -7,8 +7,10 @@ wget http://ppa.launchpad.net/dajhorn/dante/ubuntu/pool/main/d/dante/dante-serve
 sudo dpkg -i dante-server_1.4.1-1_amd64.deb
 # it would fail to start, it's okay, packaged config is garbage
 
-# write basic config:
+# open dante config for editing:
 sudo nano /etc/danted.conf
+
+# remove everythong (holding Ctrl+K will do it) and copy basic config:
 logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
@@ -27,6 +29,7 @@ socks pass {
         from: 0/0 to: 0/0
         log: connect disconnect error
 }
+# end of config
 
 # restart dante and enable starting on boot:
 sudo systemctl restart danted
@@ -38,9 +41,12 @@ sudo ufw allow 1080
 # add system user with password to use with sock5 auth:
 sudo adduser proxyuser
 
-# see dante logs:
+# you may see dante status:
+sudo systemctl status danted
+
+# you may see dante logs (connect disconnect error):
 sudo journalctl -xe -u danted
-# add -f to attach and watch
+# add -f argument to attach and watch
 
 # test proxy on your local machine:
 curl -v -x socks5://proxyuser:proxyuserpass@yourserverip:1080 https://www.yandex.ru/
