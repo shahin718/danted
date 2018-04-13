@@ -60,6 +60,7 @@ curl -v -x socks5://proxyuser:proxyuserpass@yourserverip:1080 https://www.yandex
 
 # used and useful links:
 # http://www.inet.no/dante/doc/latest/config/server.html
+# http://www.inet.no/dante/doc/latest/config/redundancy.html
 # https://www.binarytides.com/setup-dante-socks5-server-on-ubuntu/
 # https://krasovsky.me/it/2017/07/socks5-dante/
 # https://bitbucket.org/snippets/gudvinr/qd5pA
