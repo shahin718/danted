@@ -34,7 +34,9 @@ socks pass {
 # add system user 'proxyuser' with password to use with sock5 auth:
 sudo useradd --shell /usr/sbin/nologin proxyuser
 sudo passwd proxyuser
-# and input password twice
+# and input desired password twice
+# or use:
+# sudo adduser --system --no-create-home --disabled-login --group proxyuser
 
 # if you use ubuntu firewall, allow port:
 sudo ufw allow 1080
@@ -51,12 +53,12 @@ sudo journalctl -xe -u danted
 # add -f argument to attach and watch
 
 # test proxy on your local machine:
-curl -v -x socks5://proxyuser:proxyuserpass@yourserverip:1080 https://www.yandex.ru/
+curl -v -x socks5://proxyuser:password@yourserverip:1080 https://www.yandex.ru/
 
 # construct telegram links:
-# https://t.me/socks?server=yourserverip&port=1080&user=proxyuser&pass=proxyuserpass
+# https://t.me/socks?server=yourserverip&port=1080&user=proxyuser&pass=password
 #  or:
-# tg://socks?server=yourserverip&port=1080&user=proxyuser&pass=proxyuserpass
+# tg://socks?server=yourserverip&port=1080&user=proxyuser&pass=password
 
 # used and useful links:
 # http://www.inet.no/dante/doc/latest/config/server.html
