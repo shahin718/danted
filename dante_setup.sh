@@ -33,10 +33,10 @@ socks pass {
 
 # add system user 'proxyuser' with password to use with sock5 auth:
 sudo useradd --shell /usr/sbin/nologin proxyuser
+# or:
+# sudo adduser --system --no-create-home --disabled-login --group proxyuser
 sudo passwd proxyuser
 # and input desired password twice
-# or use:
-# sudo adduser --system --no-create-home --disabled-login --group proxyuser
 
 # if you use ubuntu firewall, allow port:
 sudo ufw allow 1080
