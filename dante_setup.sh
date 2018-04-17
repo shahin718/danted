@@ -14,8 +14,10 @@ sudo nano /etc/danted.conf
 logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
-# interface name and desired proxy port may differ, use `ip a` command to see interfaces:
+# interface name and desired proxy ports may differ, use `ip a` command to see interfaces:
 internal: eth0 port = 1080
+internal: eth0 port = 443
+internal: eth0 port = 110
 external: eth0
 # set socksmethod to 'none' instead of 'username' if you want to disable auth.
 socksmethod: username
@@ -38,8 +40,10 @@ sudo useradd --shell /usr/sbin/nologin proxyuser
 sudo passwd proxyuser
 # and input desired password twice
 
-# if you use ubuntu firewall, allow port:
+# if you use ubuntu firewall, allow ports:
 sudo ufw allow 1080
+sudo ufw allow 443
+sudo ufw allow 110
 
 # restart dante and enable starting on boot:
 sudo systemctl restart danted
@@ -53,12 +57,12 @@ sudo journalctl -xe -u danted
 # add -f argument to attach and watch
 
 # test proxy on your local machine:
-curl -v -x socks5://proxyuser:password@yourserverip:1080 https://www.yandex.ru/
+curl -v -x socks5://proxyuser:password@yourserverip:443 https://www.yandex.ru/
 
 # construct telegram links:
-# https://t.me/socks?server=yourserverip&port=1080&user=proxyuser&pass=password
+# https://t.me/socks?server=yourserverip&port=443&user=proxyuser&pass=password
 #  or:
-# tg://socks?server=yourserverip&port=1080&user=proxyuser&pass=password
+# tg://socks?server=yourserverip&port=443&user=proxyuser&pass=password
 
 # used and useful links:
 # http://www.inet.no/dante/doc/latest/config/server.html
