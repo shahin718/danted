@@ -15,9 +15,9 @@ logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
 # interface name and desired proxy ports may differ, use `ip a` command to see interfaces:
-internal: eth0 port = 1080
-internal: eth0 port = 443
-internal: eth0 port = 110
+internal: 0.0.0.0 port = 1080
+internal: 0.0.0.0 port = 443
+internal: 0.0.0.0 port = 110
 external: eth0
 # set socksmethod to 'none' instead of 'username' if you want to disable auth.
 socksmethod: username
