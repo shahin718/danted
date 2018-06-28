@@ -6,7 +6,7 @@ wget http://ppa.launchpad.net/dajhorn/dante/ubuntu/pool/main/d/dante/dante-serve
 wget http://archive.ubuntu.com/ubuntu/pool/universe/d/dante/dante-server_1.4.2+dfsg-2build1_amd64.deb
 
 # install it:
-sudo dpkg -i dante-server_1.4.1-1_amd64.deb
+sudo dpkg -i dante-server_*.deb
 # it would fail to start, it's okay, packaged config is garbage
 
 # open dante config for editing:
