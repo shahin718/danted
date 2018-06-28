@@ -2,6 +2,8 @@
 
 # download latest dante-server deb:
 wget http://ppa.launchpad.net/dajhorn/dante/ubuntu/pool/main/d/dante/dante-server_1.4.1-1_amd64.deb
+# or
+wget archive.ubuntu.com/ubuntu/pool/universe/d/dante/dante-server_1.4.2+dfsg-2build1_amd64.deb
 
 # install it:
 sudo dpkg -i dante-server_1.4.1-1_amd64.deb
