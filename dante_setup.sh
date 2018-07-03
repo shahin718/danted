@@ -16,10 +16,11 @@ sudo nano /etc/danted.conf
 logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
-# interface name and desired proxy ports may differ, use `ip a` command to see interfaces:
-internal: 0.0.0.0 port = 1080
-internal: 0.0.0.0 port = 443
+# desired proxy ports may differ, here are used POP3 110, IMAP 143, HTTPS 443:
 internal: 0.0.0.0 port = 110
+internal: 0.0.0.0 port = 143
+internal: 0.0.0.0 port = 443
+# interface name may differ, use `ip a` command and copy non-lo interface:
 external: eth0
 # set socksmethod to 'none' instead of 'username' if you want to disable auth.
 socksmethod: username
@@ -43,9 +44,9 @@ sudo passwd proxyuser
 # and input desired password twice
 
 # if you use ubuntu firewall, allow ports:
-sudo ufw allow 1080
-sudo ufw allow 443
 sudo ufw allow 110
+sudo ufw allow 143
+sudo ufw allow 443
 
 # restart dante and enable starting on boot:
 sudo systemctl restart danted
