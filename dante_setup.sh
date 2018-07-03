@@ -64,7 +64,6 @@ curl -v -x socks5://proxyuser:password@yourserverip:443 https://www.yandex.ru/
 
 # construct telegram links:
 # https://t.me/socks?server=yourserverip&port=443&user=proxyuser&pass=password
-#  or:
 # tg://socks?server=yourserverip&port=443&user=proxyuser&pass=password
 
 # used and useful links:
