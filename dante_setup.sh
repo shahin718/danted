@@ -19,7 +19,7 @@ sudo nano /etc/danted.conf
 logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
-# desired proxy ports may differ, here are used POP3 110, IMAP 143, HTTPS 443:
+# desired proxy ports may differ, used here: POP3 110, IMAP 143, HTTPS 443
 internal: 0.0.0.0 port = 110
 internal: 0.0.0.0 port = 143
 internal: 0.0.0.0 port = 443
