@@ -3,7 +3,7 @@
 # install dante-server
 sudo apt update
 sudo apt install dante-server
-# or download latest dante-server deb for Ubuntu, works for 16.04. and 18.04:
+# or download latest dante-server deb for Ubuntu, works for 16.04 and 18.04:
 wget http://archive.ubuntu.com/ubuntu/pool/universe/d/dante/dante-server_1.4.2+dfsg-2build1_amd64.deb
 # or older version:
 wget http://ppa.launchpad.net/dajhorn/dante/ubuntu/pool/main/d/dante/dante-server_1.4.1-1_amd64.deb
